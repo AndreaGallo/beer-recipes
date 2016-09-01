@@ -1,0 +1,23 @@
+<div class="row m20 text-sm-center">
+    <div class="col-md-6 mb20-sm">
+        Showing {{numOfRecipes}} beer recipe<span ng-if="numOfRecipes > 1">s</span>
+    </div>
+    <div class="col-md-6  mb10-sm">
+        <div class="pull-md-right">
+            <button class="btn btn-primary display-box-sm"  ui-sref="home.newRecipe"><i class="fa fa-plus" aria-hidden="true"></i> Create New Recipe</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div ng-repeat="recipe in recipes">
+        <div class="col-md-3">
+            <div class="recipe well" ui-sref="home.recipe({id: recipe.id})" title="View Recipe">
+                <i class="fa fa-beer fa-4x" aria-hidden="true"></i>
+                <h3 class="name">{{recipe.name}}</h3>
+                <h4 class="style">{{recipe.style.name}}</h4>
+                <p class="author">by {{recipe.author}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+

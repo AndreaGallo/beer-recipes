@@ -1,0 +1,96 @@
+.m20{
+    margin-bottom:20px;
+    margin-top:20px;
+}
+
+.navbar-brand .fa-beer{
+    padding-right: 5px;
+}
+
+.navbar {
+    font-size: 15px;
+}
+
+.recipe .fa-beer{
+    margin-top: 5px;
+    margin-left: -16px;
+}
+
+.recipe{
+    text-align:center;
+    cursor:pointer;
+}
+
+.recipe:hover{
+    opacity: 0.8;
+}
+
+.recipe .name, .recipe .author{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+
+.select-style option{
+    background-color: #4e5d6c;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}
+
+.ui-select-no-choice span{
+    padding: 3px 20px;
+}
+
+.select-style input.form-control,.select-style .btn.btn-default.form-control{
+    padding-left: 3px !important;
+}
+
+.has-error .form-control, .has-error .form-control:focus {
+    border: 2px solid #e74c3c;
+}
+
+ng-form[name="recipeForm"] textarea {
+    resize: none;
+}
+
+.require-field-text{
+    font-size: 12px;
+}
+
+.require-field-text-symbol{
+    color: #e74c3c;
+}
+
+@media (min-width: 768px) {
+    .pull-md-right {
+        float: right !important;
+    }
+
+    .mr10-md{
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .mb20-sm{
+        margin-bottom: 20px;
+    }
+
+    .mb10-sm{
+        margin-bottom: 10px;
+    }
+    .text-sm-center{
+        text-align: center;
+    }
+
+    .display-box-sm{
+        display: block;
+        width: 100%;
+    }
+}

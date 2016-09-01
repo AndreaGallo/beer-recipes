@@ -1,0 +1,125 @@
+<div class="row m20">
+    <div class="col-md-6 mb20-sm">
+        <button class="btn btn-primary display-box-sm"  ui-sref="home.recipes"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back to Recipes</button>
+    </div>
+    <div class="col-md-6">
+        <div class="pull-md-right">
+            <button type="reset" class="btn btn-default display-box-sm mb20-sm mr10-md" ng-disabled="isClearDisabled()" ng-click="clearRecipe()"><i class="fa fa-ban" aria-hidden="true"></i> Clear Recipe</button>
+            <button type="save" class="btn btn-primary display-box-sm" ng-disabled="isSaveDisabled()" ng-click="saveRecipe()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save Recipe</button>
+        </div>
+    </div>
+</div>
+<div class="well">
+    <ng-form name="recipeForm">   
+        <p class="require-field-text">(<span class="require-field-text-symbol">*</span> Required fields)</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group ng-class:{'has-error':recipeForm.name.$invalid}">
+                    <span class="require-field-text-symbol">*</span>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" ng-model="recipe.name" 
+                        class="form-control" ng-disabled="isViewOnly()" maxlength="30" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group select-style ng-class:{'has-error':recipeForm.style.$invalid}">
+                    <span class="require-field-text-symbol">*</span>
+                    <label for="style">Style: </label>
+                    <select name="style" id="style" 
+                                    class="form-control"
+                                    ng-options="style.name for style in beerStyles track by style.id"
+                                    ng-model="recipe.style"
+                                    ng-disabled="isViewOnly()"
+                                    required>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group ng-class:{'has-error':recipeForm.grains.$invalid}">
+                    <span class="require-field-text-symbol">*</span>
+                    <label>Grains</label>
+                    <ui-select id="grains" name="grains" multiple ng-model="recipe.grains" theme="bootstrap"
+                        ng-disabled="isViewOnly()" required>
+                        <ui-select-match placeholder="Search and select one or more grains...">{{$item}}</ui-select-match>
+
+                        <ui-select-choices repeat="grain in grains | filter:$select.search">
+                        {{grain}}
+                        </ui-select-choices>
+
+                        <ui-select-no-choice>
+                            No results found..
+                        </ui-select-no-choice>
+                    </ui-select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group ng-class:{'has-error':recipeForm.hops.$invalid}">
+                    <span class="require-field-text-symbol">*</span>
+                    <label>Hops</label>
+                    <ui-select id="hops" name="hops" multiple ng-model="recipe.hops" theme="bootstrap" 
+                        ng-disabled="isViewOnly()" required>
+                        <ui-select-match placeholder="Search and select one or more hops...">{{$item}}</ui-select-match>
+
+                        <ui-select-choices repeat="hop in hops | filter:$select.search">
+                        {{hop}}
+                        </ui-select-choices>
+
+                        <ui-select-no-choice>
+                            No results found..
+                        </ui-select-no-choice>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group ng-class:{'has-error':recipeForm.yeasts.$invalid}">
+                    <span class="require-field-text-symbol">*</span>
+                    <label>Yeasts</label>
+                    <ui-select id="yeasts" name="yeasts" multiple ng-model="recipe.yeasts" theme="bootstrap" 
+                        ng-disabled="isViewOnly()" required> 
+                        <ui-select-match placeholder="Search and select one or more yeasts...">{{$item}}</ui-select-match>
+
+                        <ui-select-choices repeat="yeast in yeasts | filter:$select.search">
+                        {{yeast}}
+                        </ui-select-choices>
+                        
+                        <ui-select-no-choice>
+                            No results found..
+                        </ui-select-no-choice>
+                    </ui-select>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Extras</label>
+                    <ui-select id="extras" name="extras" multiple ng-model="recipe.extras" theme="bootstrap" 
+                        ng-disabled="isViewOnly()"> 
+                        <ui-select-match placeholder="Search and select one or more extras...">{{$item}}</ui-select-match>
+
+                        <ui-select-choices repeat="extra in extras | filter:$select.search">
+                        {{extra}}
+                        </ui-select-choices>
+                        
+                        <ui-select-no-choice>
+                            No results found..
+                        </ui-select-no-choice>
+                    </ui-select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group ng-class:{'has-error':recipeForm.procedure.$invalid}">
+            <span class="require-field-text-symbol">*</span>
+            <label for="procedure">Procedure</label>
+            <textarea id="procedure" name="procedure" rows='7' ng-model="recipe.procedure" class="form-control" 
+                ng-disabled="isViewOnly()" required></textarea>
+        </div>
+    </ng-form>
+</div>
